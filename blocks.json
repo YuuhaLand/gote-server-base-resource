@@ -1,0 +1,47 @@
+{
+  "bell": {
+    "textures": {
+      "up": "bell_top",
+      "down": "bell_bottom",
+      "north": "bell_side",
+      "south": "bell_side",
+      "east": "dark_oak_planks",
+      "west": "bell_stone"
+    },
+    "carried_textures": "bell_carried",
+    "sound": "anvil"
+  },
+  "command_block": {
+    "textures": {
+      "up": "command_block_conditional_side",
+      "down": "command_block_conditional_side",
+      "north": "command_block_front",
+      "south": "command_block_back",
+      "west": "command_block_side",
+      "east": "command_block_side"
+    },
+    "sound": "stone"
+  },
+  "repeating_command_block": {
+    "textures": {
+      "up": "command_block_repeating_conditional_side",
+      "down": "command_block_repeating_conditional_side",
+      "north": "command_block_repeating_front",
+      "south": "command_block_repeating_back",
+      "west": "command_block_repeating_side",
+      "east": "command_block_repeating_side"
+    },
+    "sound": "stone"
+  },
+  "chain_command_block": {
+    "textures": {
+      "up": "command_block_chain_conditional_side",
+      "down": "command_block_chain_conditional_side",
+      "north": "command_block_chain_front",
+      "south": "command_block_chain_back",
+      "west": "command_block_chain_side",
+      "east": "command_block_chain_side"
+    },
+    "sound": "stone"
+  }
+}

@@ -1,0 +1,8 @@
+
+{
+  "namespace": "common_art",
+
+  "title_image": {
+    "texture": "textures/ui/title_gote"
+  }
+}

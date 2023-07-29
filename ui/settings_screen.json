@@ -1,0 +1,20 @@
+{
+  "namespace": "settings",
+
+  "selector_stack_panel/controls_and_settings_selector_pane/touch_button": {
+    "ignored": "($is_holographic or not $touch_supported)"
+  },
+
+  "section_content_panels/general_and_controls_sections/touch_section": {
+    "ignored": "($is_holographic or not $touch_supported)"
+  },
+
+  "selector_stack_panel/controls_and_settings_selector_pane/language_button": {
+    "ignored": false
+  },
+
+  "section_content_panels/general_and_controls_sections/language_section": {
+    "ignored": false
+  }
+
+}

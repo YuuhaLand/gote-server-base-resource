@@ -1,0 +1,34 @@
+{
+	"namespace": "general_section",
+
+  "msaa_slider": {
+    "bindings": []
+  },
+
+  "video_section/max_framerate_slider": {
+    "ignored": false
+  },
+
+  "video_section": {
+    "modifications": [
+      {
+        "control_name": "ui_profile_dropdown",
+        "operation": "insert_after",
+        "value": [
+          {
+            "vsync_dropdown_gs@settings_common.option_dropdown": {
+							"ignored": "$gote_supporter_enabled",
+              "$option_label": "options.vsync",
+              "$dropdown_content": "general_section.vysnc_dropdown_content",
+              "$dropdown_area": "content_area",
+              "$dropdown_name": "vsync_dropdown",
+              "$options_dropdown_toggle_label_binding": "#vsync_dropdown_toggle_label",
+              "$option_enabled_binding_name": "#vsync_dropdown_enabled",
+              "$dropdown_scroll_content_size": [ "100%", "200%" ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

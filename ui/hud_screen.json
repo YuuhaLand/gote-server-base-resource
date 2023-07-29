@@ -1,0 +1,99 @@
+{
+  "namespace": "hud",
+
+  "vignette_renderer": {
+    "ignored": true
+  },
+
+  "progress_text_label": {
+    "font_type": "minecraftTen"
+  },
+
+  "welcome_anim": {
+    "anim_type": "offset",
+    "easing": "in_quad",
+    "duration": 0.7,
+    "from": [ 181, 0 ],
+    "to": [ 0, 0 ],
+    "next": "@hud.welcome_anim_stay"
+  },
+
+  "welcome_anim_stay": {
+    "anim_type": "wait",
+    "duration": 7,
+    "next": "@hud.welcome_anim_out"
+  },
+
+  "welcome_anim_out": {
+    "anim_type": "offset",
+    "easing": "in_quad",
+    "duration": 1,
+    "from": [ 0, 0 ],
+    "to": [ 181, 0 ],
+    "destroy_at_end": "hud_title_text",
+    "end_event": "hud_title_text_complete"
+  },
+
+  "welcome": {
+    "type": "panel",
+    "size": [ 180, 43 ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "clips_children": true,
+    "controls": [
+      {
+        "back": {
+          "type": "image",
+          "texture": "textures/ui/greyBorder",
+          "size": [ 180, 43 ],
+          "offset": "@hud.welcome_anim",
+          "layer": 128,
+          "controls": [
+            {
+              "title_text": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "offset": [ 5, 5 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "color": [ 1, 1, 1 ],
+                "layer": 129,
+                "text": "§l§6ようこそ§eごて鯖§6へ！！",
+                "font_type": "unicode",
+                "shadow": true
+              }
+            },
+            {
+              "subtitle_text": {
+                "type": "label",
+                "size": [ "default", "default" ],
+                "offset": [ 5, 17 ],
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "color": [ 1, 1, 1 ],
+                "layer": 129,
+                "text": "§bYukaYama0311 のフレンド登録\n§aよろしくお願いします!!",
+                "font_type": "unicode",
+                "shadow": true
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "hud_content": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "welcome@hud.welcome": {}
+          }
+        ]
+      }
+    ]
+  }
+}
