@@ -1,6 +1,38 @@
 {
   "namespace": "pause",
 
+  "info_text_anim": {
+    "anim_type": "offset",
+    "duration": "$info_text_duration",
+    "from": "$info_text_from",
+    "to": "$info_text_to",
+    "next": "@pause.info_text_anim"
+  },
+
+  "info_text": {
+    "type": "image",
+    "size": [ "100%", 15 ],
+    "texture": "textures/ui/White",
+    "color": [ 0, 0, 0 ],
+    "layer": 10,
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "ignored": "(not $visible_info_text)",
+
+    "controls": [
+      {
+        "text_control": {
+          "type": "label",
+          "size": [ "default", 10 ],
+          "text": "$info_text",
+          "layer": 11,
+          "font_type": "unicode",
+          "anims": [ "@pause.info_text_anim" ]
+        }
+      }
+    ]
+  },
+
   "quit_button_panel": {
     "type": "panel",
     "size": [ "100%", 28 ],
@@ -364,10 +396,36 @@
     "type": "panel",
     "size": [ "100%", "100%" ],
     "offset": [ 0, 0 ],
+
+    "$visible_info_text|default": false,
+    "$info_text|default": "§l§3《§gお知らせ§3》§r本文",
+    "$info_text_duration|default": 20,
+    "$info_text_from|default": [ "100% + 45%x", 0 ],
+    "$info_text_to|default": [ "-100% - 45%x", 0 ],
+
     "controls": [
-      { "pause_screen_main_panels@pause.pause_screen_main_panels": {} },
-      { "gamepad_helpers@pause.gamepad_helpers": {} },
-      { "keyboard_helpers@pause.keyboard_helpers": {} }
+      {
+        "main": {
+          "type": "panel",
+          "size": "$sizea",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+
+          "$sizea|default": [ "100%", "100%" ],
+          "variables": [
+            {
+              "requires": "$visible_info_text",
+              "$sizea": [ "100%", "100% - 15px"]
+            }
+          ],
+          "controls": [
+            { "pause_screen_main_panels@pause.pause_screen_main_panels": {} },
+            { "gamepad_helpers@pause.gamepad_helpers": {} },
+            { "keyboard_helpers@pause.keyboard_helpers": {} }
+          ]
+        }
+      },
+      { "info_text@pause.info_text": {} }
     ]
   }
 }
