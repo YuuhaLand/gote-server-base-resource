@@ -396,13 +396,6 @@
     "type": "panel",
     "size": [ "100%", "100%" ],
     "offset": [ 0, 0 ],
-
-    "$visible_info_text|default": false,
-    "$info_text|default": "§l§3《§gお知らせ§3》§r本文",
-    "$info_text_duration|default": 20,
-    "$info_text_from|default": [ "100% + 45%x", 0 ],
-    "$info_text_to|default": [ "-100% - 45%x", 0 ],
-
     "controls": [
       {
         "main": {
