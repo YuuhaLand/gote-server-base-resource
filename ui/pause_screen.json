@@ -26,8 +26,16 @@
           "size": [ "default", 10 ],
           "text": "$info_text",
           "layer": 11,
-          "font_type": "unicode",
-          "anims": [ "@pause.info_text_anim" ]
+          "anims": [ "@pause.info_text_anim" ],
+          "font_type": "#font_type",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "font_property_panel",
+              "source_property_name": "#font_type",
+              "target_property_name": "#font_type"
+            }
+          ]
         }
       }
     ]
@@ -340,21 +348,38 @@
         "follow_yukayama": {
           "type": "stack_panel",
           "size": [ "100%", "100%c + 10px" ],
+          "ignored": "(not $is_goteserver)",
           "controls": [
             {
               "t1": {
                 "type": "label",
                 "shadow": true,
-                "font_type": "unicode",
-                "text": "§l§bＹｕｋａＹａｍａ０３１１"
+                "text": "§l§bＹｕｋａＹａｍａ０３１１",
+                "font_type": "#font_type",
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "font_property_panel",
+                    "source_property_name": "#font_type",
+                    "target_property_name": "#font_type"
+                  }
+                ]
               }
             },
             {
               "t2": {
                 "type": "label",
                 "shadow": true,
-                "font_type": "unicode",
-                "text": "§l§aのフレンド登録§dお願いします！！"
+                "text": "§l§aのフレンド登録§dお願いします！！",
+                "font_type": "#font_type",
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "font_property_panel",
+                    "source_property_name": "#font_type",
+                    "target_property_name": "#font_type"
+                  }
+                ]
               }
             },
             {
@@ -367,16 +392,32 @@
               "t4": {
                 "type": "label",
                 "shadow": true,
-                "font_type": "unicode",
-                "text": "§l§9ごて鯖 Ｄｉｓｃｏｒｄ"
+                "text": "§l§9ごて鯖 Ｄｉｓｃｏｒｄ",
+                "font_type": "#font_type",
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "font_property_panel",
+                    "source_property_name": "#font_type",
+                    "target_property_name": "#font_type"
+                  }
+                ]
               }
             },
             {
               "t5": {
                 "type": "label",
                 "shadow": true,
-                "font_type": "unicode",
-                "text": "§l§dｄｉｓｃｏｒｄ．ｇｇ／§aｔｚＵ７Ｒ５ＮＭｎｕ"
+                "text": "§l§dｄｉｓｃｏｒｄ．ｇｇ／§aｔｚＵ７Ｒ５ＮＭｎｕ",
+                "font_type": "#font_type",
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "font_property_panel",
+                    "source_property_name": "#font_type",
+                    "target_property_name": "#font_type"
+                  }
+                ]
               }
             }
           ]
@@ -397,6 +438,15 @@
     "size": [ "100%", "100%" ],
     "offset": [ 0, 0 ],
     "controls": [
+      {
+        "font_property_panel": {
+          "type": "panel",
+          "size": [ 0, 0 ],
+          "property_bag": {
+            "#font_type": "classic"
+          }
+        }
+      },
       {
         "main": {
           "type": "panel",

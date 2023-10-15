@@ -1,4 +1,5 @@
 {
+  "$is_goteserver": true,
   "$gote_supporter_enabled|default": false,
   
   "$visible_info_text|default": false,

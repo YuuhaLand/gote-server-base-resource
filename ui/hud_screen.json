@@ -9,78 +9,122 @@
     "font_type": "minecraftTen"
   },
 
-  "welcome_anim": {
-    "anim_type": "offset",
-    "easing": "in_quad",
-    "duration": 0.7,
-    "from": [ 181, 0 ],
-    "to": [ 0, 0 ],
-    "next": "@hud.welcome_anim_stay"
-  },
-
-  "welcome_anim_stay": {
+  
+  "welcome_toast_anim1": {
     "anim_type": "wait",
-    "duration": 7,
-    "next": "@hud.welcome_anim_out"
+    "duration": 2,
+    "next": "@hud.welcome_toast_anim2"
   },
-
-  "welcome_anim_out": {
+  "welcome_toast_anim2": {
     "anim_type": "offset",
-    "easing": "in_quad",
+    "easing": "out_quart",
     "duration": 1,
+    "from": [ 145, 0 ],
+    "to": [ 0, 0 ],
+    "next": "@hud.welcome_toast_anim3"
+  },
+  "welcome_toast_anim3": {
+    "anim_type": "wait",
+    "duration": 4,
+    "next": "@hud.welcome_toast_anim4"
+  },
+  "welcome_toast_anim4": {
+    "anim_type": "offset",
+    "easing": "out_quart",
     "from": [ 0, 0 ],
-    "to": [ 181, 0 ],
-    "destroy_at_end": "hud_title_text",
-    "end_event": "hud_title_text_complete"
+    "to": [ 145, 0 ],
+    "duration": 1,
+    "destroy_at_end": "welcome_toast"
   },
 
-  "welcome": {
+  "welcome_toast_bar_anim1": {
+    "anim_type": "wait",
+    "duration": 2,
+    "next": "@hud.welcome_toast_bar_anim2"
+  },
+  "welcome_toast_bar_anim2": {
+    "anim_type": "size",
+    "duration": 5,
+    "from": [ "100%", 2 ],
+    "to": [ 0, 2 ]
+  },
+  
+  "welcome_toast": {
     "type": "panel",
-    "size": [ 180, 43 ],
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",
+    "size": [ 145, 38  ],
+    "offset": [ 0, -20 ],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
     "clips_children": true,
+    "layer": 150,
     "controls": [
       {
         "back": {
           "type": "image",
-          "texture": "textures/ui/greyBorder",
-          "size": [ 180, 43 ],
-          "offset": "@hud.welcome_anim",
-          "layer": 128,
+          "texture": "textures/ui/tip_text_background",
+          "size": [ 145, 38 ],
+          "offset": [ 145, 0 ],
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "alpha": 0.7,
+          "anims": [ "@hud.welcome_toast_anim1" ],
           "controls": [
             {
-              "title_text": {
+              "text": {
                 "type": "label",
-                "size": [ "default", "default" ],
-                "offset": [ 5, 5 ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "color": [ 1, 1, 1 ],
-                "layer": 129,
-                "text": "§l§6ようこそ§eごて鯖§6へ！！",
-                "font_type": "unicode",
-                "shadow": true
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "offset": [ 22, 0 ],
+                "text": "§l§6ようこそ§eごて鯖§6へ!!§r\n§bYukaYama0311 のフレンド登録\n§aよろしくお願いします!!",
+                "font_type": "#font_type",
+                "layer": 1,
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "resolve_sibling_scope": true,
+                    "source_control_name": "font_property_panel",
+                    "source_property_name": "#font_type",
+                    "target_property_name": "#font_type"
+                  }
+                ]
               }
             },
             {
-              "subtitle_text": {
-                "type": "label",
-                "size": [ "default", "default" ],
-                "offset": [ 5, 17 ],
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "color": [ 1, 1, 1 ],
-                "layer": 129,
-                "text": "§bYukaYama0311 のフレンド登録\n§aよろしくお願いします!!",
-                "font_type": "unicode",
-                "shadow": true
+              "icon": {
+                "type": "image",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "size": [ 18, 18 ],
+                "offset": [ 2, 0 ],
+                "texture": "textures/ui/heart_new",
+                "layer": 1
+              }
+            },
+            {
+              "progless_bar": {
+                "type": "image",
+                "texture": "textures/ui/White",
+                "size": [ "100%", 2 ],
+                "anchor_from": "bottom_left",
+                "anchor_to": "bottom_left",
+                "color": [ 0.000, 0.678, 0.965 ],
+                "anims": [ "@hud.welcome_toast_bar_anim1" ],
+                "layer": 1
+              }
+            },
+            {
+              "font_property_panel": {
+                "type": "panel",
+                "size": [ 0, 0 ],
+                "property_bag": {
+                  "#font_type": "classic"
+                }
               }
             }
           ]
         }
       }
-    ]
+     ]
   },
 
   "hud_content": {
@@ -90,7 +134,7 @@
         "operation": "insert_front",
         "value": [
           {
-            "welcome@hud.welcome": {}
+            "welcome_toast@hud.welcome_toast": {}
           }
         ]
       }
