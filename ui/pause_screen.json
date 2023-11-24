@@ -1,46 +1,6 @@
 {
   "namespace": "pause",
 
-  "info_text_anim": {
-    "anim_type": "offset",
-    "duration": "$info_text_duration",
-    "from": "$info_text_from",
-    "to": "$info_text_to",
-    "next": "@pause.info_text_anim"
-  },
-
-  "info_text": {
-    "type": "image",
-    "size": [ "100%", 15 ],
-    "texture": "textures/ui/White",
-    "color": [ 0, 0, 0 ],
-    "layer": 10,
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle",
-    "ignored": "(not $visible_info_text)",
-
-    "controls": [
-      {
-        "text_control": {
-          "type": "label",
-          "size": [ "default", 10 ],
-          "text": "$info_text",
-          "layer": 11,
-          "anims": [ "@pause.info_text_anim" ],
-          "font_type": "#font_type",
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "font_property_panel",
-              "source_property_name": "#font_type",
-              "target_property_name": "#font_type"
-            }
-          ]
-        }
-      }
-    ]
-  },
-
   "quit_button_panel": {
     "type": "panel",
     "size": [ "100%", 28 ],
@@ -433,10 +393,64 @@
     "$screen_content": "pause.gtb_pause_screen_content"
   },
 
+  "info_text_anim": {
+    "anim_type": "offset",
+    "duration": "$info_text_duration",
+    "from": [ "100%c + 10px", 0 ],
+    "to": [ "- 100%", 0 ],
+    "next": "@pause.info_text_anim"
+  },
+
+  "info_text": {
+    "type": "image",
+    "size": [ "100%", 15 ],
+    "texture": "textures/ui/White",
+    "color": [ 0, 0, 0 ],
+    "layer": 10,
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "ignored": "(not $visible_info_text)",
+
+    "controls": [
+      {
+        "text_control": {          
+          "type": "panel",
+          "size": [ "100%c", 10 ],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "layer": 11,
+          "offset": "@pause.info_text_anim",
+          "controls": [
+            {
+              "text": {
+                "type": "label",
+                "text": "$info_text",
+                "font_type": "#font_type",
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "font_property_panel",
+                    "source_property_name": "#font_type",
+                    "target_property_name": "#font_type"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   "gtb_pause_screen_content": {
     "type": "panel",
     "size": [ "100%", "100%" ],
     "offset": [ 0, 0 ],
+
+    "$visible_info_text|default": false,
+    "$info_text_duration|default": 10,
+    "$info_text|default": "§l§3《§gお知らせ§3》 §r [お知らせテキストをここに入力]",
+    
     "controls": [
       {
         "font_property_panel": {
@@ -445,6 +459,24 @@
           "property_bag": {
             "#font_type": "classic"
           }
+        }
+      },
+      {
+        "note_screen@common.toggle": {
+          "$toggle_name": "dummy_note_screen_toggle",
+          "layer": 0,
+          "size": [ 0, 0 ],
+          "sound_volume": 0,
+          "focus_enabled": false,
+
+          "$unchecked_control": "common.empty_panel",
+          "$unchecked_locked_control": "common.empty_panel",
+          "$checked_locked_control": "common.empty_panel",
+          "$unchecked_locked_hover_control": "common.empty_panel",
+          "$checked_locked_hover_control": "common.empty_panel",
+          "$checked_control": "common.empty_panel",
+          "$checked_hover_control": "common.empty_panel",
+          "$unchecked_hover_control": "common.empty_panel"
         }
       },
       {

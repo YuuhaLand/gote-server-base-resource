@@ -1,18 +1,18 @@
 {
   "format_version": 2,
   "header": {
-    "name": "ごて鯖 基本リソース 120",
+    "name": "ごて鯖 基本リソース 121",
     "description": "このパックからなにかコピーした場合は\n必ず表記お願いします\nby YukaYama0311",
-    "version": [ 1, 2, 0 ],
-    "uuid": "7794998d-aa4c-4c31-b5af-ead8f18a07b0",
+    "version": [ 1, 2, 1 ],
+    "uuid": "f18bb19d-0c38-445c-a940-cf72979de8f0",
     "min_engine_version": [ 1, 13, 0 ] 
   },
   "modules": [
     {
       "type": "resources",
       "description": "",
-      "version": [ 1, 2, 0 ],
-      "uuid": "68d774e5-4546-402a-b264-fe126e7ac03b"
+      "version": [ 1, 2, 1 ],
+      "uuid": "1e33e71d-fac1-4896-bcf9-25dbdb60e7e9"
     }
   ]
 }
